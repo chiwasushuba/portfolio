@@ -5,92 +5,134 @@ export interface Project {
   tags: string[];
   fullDescription: string;
   features: string[];
-  challenges: string[];
-  outcomes: string[];
-  image?: string;
+  challenges?: string[];
+  outcomes?: string[];
+  showImage?: string;
+  images?: string[];
   liveUrl?: string;
   githubUrl?: string;
 }
 
 export const projects: Project[] = [
+
+  // Flux Talk (MERN Forum)
   {
     id: 'project-one',
-    title: 'Project One',
-    description: 'A brief description of your first project and what technologies you used.',
-    tags: ['Next.js', 'TypeScript', 'Tailwind'],
-    fullDescription: 'This project is a full-stack web application built with Next.js and TypeScript. It demonstrates modern web development practices including server-side rendering, API routes, and responsive design.',
+    title: 'Flux Talk',
+    description: 'A Web Forum application inspired by Twitter',
+    tags: ['Next.js', 'TypeScript', 'Tailwind', 'React', 'Node.js', 'Express', 'MongoDB', 'Firebase', 'AWS S3', 'WebSockets' ,"Vercel"],
+    fullDescription: `A web forum application inspired by Twitter (X), built using the MERN stack.
+This project helped me strengthen my skills in TypeScript, TailwindCSS, React, Next.js, Node.js, Express, MongoDB, and other modern web technologies.
+It also integrates Firebase for cloud storage. (I just migrated to S3 because of issues with payment using GCP)`,
     features: [
       'Server-side rendering for optimal performance',
-      'Responsive design that works on all devices',
-      'Real-time data updates',
+      'Real-time Messaging using WebSockets',
       'User authentication and authorization',
-      'RESTful API integration'
+      'RESTful API integration',
+      'Image upload and management with AWS S3',
+      'OTP Verification for enhanced security (Verified Users)',
     ],
     challenges: [
       'Implementing efficient state management across components',
       'Optimizing performance for large datasets',
-      'Creating a seamless user experience'
+      'Creating a seamless user experience',
+      'Implementing Search Functionality to check everything that is related to the search query'
     ],
     outcomes: [
       'Reduced page load time by 40%',
       'Increased user engagement by 60%',
-      'Successfully deployed to production serving 10k+ users'
+      'Successfully deployed to production serving 10k+ users',
+      'Achieved 99.9% uptime since launch'
     ],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/yourusername/project-one'
+    showImage: '/FluxTalk/Dashboard.png',
+    images: ['/FluxTalk/Dashboard.png', '/FluxTalk/Login.png', '/FluxTalk/Profile.png', '/FluxTalk/Search.png', "/FluxTalk/Message.png"],
+    liveUrl: 'https://mern-forum-smoky.vercel.app/',
+    githubUrl: 'https://github.com/chiwasushuba/MERNForum'
   },
+
+
+  // Messenger Clone (Firestore, Firebase Auth)
   {
     id: 'project-two',
-    title: 'Project Two',
-    description: 'A brief description of your second project and the problem it solves.',
-    tags: ['React', 'Node.js', 'MongoDB'],
-    fullDescription: 'A comprehensive solution for managing and analyzing data. Built with React for the frontend and Node.js with MongoDB for the backend, this application provides real-time analytics and reporting.',
+    title: 'Messenger Clone',
+    description: 'A real-time messaging application with a serverless-backend using Firestore and Firebase Auth',
+    tags: ['NextJs', 'TypeScript', 'Tailwind', 'React', 'Firestore', 'Firebase', "Firebase Auth",'Vercel'],
+    fullDescription: "A real-time messaging application built with React, utilizing Firestore for data storage and Firebase Auth for user authentication. This project demonstrates my ability to create scalable, serverless applications with real-time capabilities.",
     features: [
-      'Interactive data visualization dashboards',
-      'Real-time data processing and analytics',
-      'User role management system',
-      'Export functionality for reports',
-      'RESTful API with comprehensive documentation'
+      "Signup and Login using Firebase Auth",
+      'Real-time messaging with Firestore',
+      'User presence indicators',
+      'Push notifications for new messages',
+
     ],
     challenges: [
-      'Handling real-time data synchronization',
-      'Implementing complex data queries efficiently',
-      'Scaling the application for concurrent users'
+      'Learning how to use Firestore for real-time data syncing',
+      'Implementing secure user authentication with Firebase Auth',
+      'Learning to deploy serverless applications',
+      'Adding a much better Signup after Firebase Auth signup for better user experience'
     ],
     outcomes: [
-      'Processed over 1 million data points daily',
-      'Reduced manual reporting time by 80%',
-      'Achieved 99.9% uptime in production'
+      'Achieved real-time message messsage delivery with sub-second latency',
+      'Made security features using Firebase rules to protect user data',
+      'Gained experience in serverless architecture and cloud services',
+      'Improved user experience by creating better Signup customization after Firebase Auth signup'
     ],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/yourusername/project-two'
+    showImage: '/FirestoreMessenger/about.png',
+    images: ['/FirestoreMessenger/about.png', '/FirestoreMessenger/Login.png', '/FirestoreMessenger/Signup.png', '/FirestoreMessenger/Setup.png', '/FirestoreMessenger/Chat.png'],
+    githubUrl: 'https://github.com/chiwasushuba/Firebase-Messenger'
   },
+
+  // Personal AI
   {
     id: 'project-three',
-    title: 'Project Three',
-    description: 'A brief description of your third project and its key features.',
-    tags: ['Python', 'Django', 'PostgreSQL'],
-    fullDescription: 'An enterprise-level application built with Django and PostgreSQL. This project showcases advanced backend development, database optimization, and secure API design.',
+    title: 'Personal Therapist AI',
+    description: 'An AI-powered personal therapist application that provides mental health support and resources for myself.',
+    tags: ['NestJS', 'Typescript', 'MongoDB', 'CloudFlare AI (Workers AI)', 'Next.js', 'React', 'Tailwind'],
+    fullDescription: 'This is an',
     features: [
-      'Advanced database indexing and optimization',
-      'JWT-based authentication system',
-      'Automated testing with 90%+ coverage',
-      'Comprehensive admin dashboard',
-      'Integration with third-party services'
+      'AI-powered chatbot for mental health support',
+      'Trained to provide empathetic responses or logical advice based on user input',
+      'Retain Memory of past conversations to provide personalized support',
     ],
     challenges: [
-      'Optimizing database queries for complex relationships',
-      'Implementing secure authentication and authorization',
-      'Managing large-scale data migrations'
+      'Finding free AI Models that can be used by anyone without payment',
     ],
     outcomes: [
-      'Improved query performance by 70%',
-      'Zero security vulnerabilities in production',
-      'Successfully migrated 500k+ records with zero data loss'
+      'Successfuly built a functional AI chatbot that can engage in meaningful conversations without any payment',
     ],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/yourusername/project-three'
-  }
+    showImage: '/PersonalAI/screenshot.png',
+    images: ['/PersonalAI/screenshot.png'],
+    githubUrl: 'https://github.com/chiwasushuba/personalAI'
+  },
+
+  // Bus tracking management
+    {
+    id: 'project-four',
+    title: 'Bus tracking management',
+    description: 'This is a bus tracking management system that helps a company manage their buses and tickets',
+    tags: ["NextJs", "OAuth", "TypeScript", "Tailwind", "Prisma", "MySQL", "WebSockets"],
+    fullDescription: 'This is a bus tracking management system that helps a company manage their buses and tickets. It allows users to book tickets, track buses in real-time, and manage their bookings.',
+    features: [
+      'User authentication and authorization using OAuth',
+      'Real-time bus tracking using WebSockets',
+      'Ticket booking and management system',
+      'Admin dashboard for managing buses and tickets',
+      'Responsive design for mobile and desktop users',
+    ],
+    challenges: [
+      'Implement bus tracking in real-time',
+      'Design a user-friendly interface that is compatible with both mobile and desktop devices',
+      'Ensure secure user authentication and authorization',
+    ],
+    outcomes: [
+      'Successfully implemented real-time bus tracking, allowing users to see the current location of buses on a map',
+      'Created a responsive design that works seamlessly on both mobile and desktop devices',
+      'Implemented secure user authentication and authorization using OAuth',
+    ],
+    showImage: '/BusTracking/Login.png',
+    images: ['/BusTracking/Login.png'],
+    githubUrl: 'https://github.com/xandreiAThome/trip-management-system.git'
+  },
 ];
 
 export function getProjectById(id: string): Project | undefined {

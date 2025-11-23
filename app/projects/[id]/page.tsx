@@ -3,14 +3,15 @@ import { getProjectById, getAllProjectIds } from '@/lib/projects-data';
 import FadeIn from '@/components/animation/FadeIn';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ProjectCarousel } from '@/components/ProjectCarousel';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export function generateStaticParams() {
@@ -19,8 +20,9 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = getProjectById(params.id);
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { id } = await params;
+  const project = getProjectById(id);
 
   if (!project) {
     notFound();
@@ -73,11 +75,15 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </FadeIn>
 
-        {/* Project Image Placeholder */}
+        {/* Project Images Carousel */}
         <FadeIn delay={0.2}>
-          <div className="w-full h-64 md:h-96 bg-secondary rounded-lg mb-12 flex items-center justify-center">
-            <p className="text-muted-foreground">Project Screenshot</p>
-          </div>
+          {project.images && project.images.length > 0 ? (
+            <ProjectCarousel images={project.images} title={project.title} />
+          ) : (
+            <div className="w-full h-64 md:h-96 bg-secondary rounded-lg mb-12 flex items-center justify-center">
+              <p className="text-muted-foreground">Project Screenshot</p>
+            </div>
+          )}
         </FadeIn>
 
         {/* Full Description */}
@@ -121,7 +127,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             </CardHeader>
             <CardContent>
               <ul className="space-y-3">
-                {project.challenges.map((challenge, index) => (
+                {project.challenges?.map((challenge, index) => (
                   <li key={index} className="flex items-start">
                     <span className="text-primary mr-3 mt-1">•</span>
                     <span className="text-muted-foreground">{challenge}</span>
@@ -140,7 +146,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             </CardHeader>
             <CardContent>
               <ul className="space-y-3">
-                {project.outcomes.map((outcome, index) => (
+                {project.outcomes?.map((outcome, index) => (
                   <li key={index} className="flex items-start">
                     <span className="text-primary mr-3 mt-1">★</span>
                     <span className="text-muted-foreground">{outcome}</span>

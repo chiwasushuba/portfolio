@@ -1,15 +1,22 @@
 import FadeIn from '@/components/animation/FadeIn';
-import ProjectCard from './ProjectCard';
+import ProjectCard from '../ProjectCard';
 import { projects } from '@/lib/projects-data';
 
 export default function Projects() {
   return (
-    <section className="py-20 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" className="py-32 px-4 min-h-screen flex items-center">
+      <div className="max-w-7xl mx-auto w-full">
         <FadeIn>
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">Projects</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4">Featured Projects</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Explore my latest work showcasing modern web development, creative problem-solving, and innovative solutions
+            </p>
+          </div>
         </FadeIn>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        {/* Grid Layout - Best for equal-sized projects */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.id}
@@ -17,9 +24,11 @@ export default function Projects() {
               title={project.title}
               description={project.description}
               tags={project.tags}
-              delay={index * 0.2}
+              thumbnail={project.showImage}
+              delay={index * 0.1}
             />
           ))}
+          
         </div>
       </div>
     </section>
