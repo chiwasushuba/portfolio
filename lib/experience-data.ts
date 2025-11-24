@@ -35,8 +35,24 @@ export const experiences: Experience[] = [
     ],
     technologies: ['AWS Textract', 'AWS', 'Document Processing', 'Automation', 'Web Development','ReactJs', 'Typescript'],
   },
-  {
+    {
     id: '3',
+    company: 'Freelance',
+    position: 'Full-Stack Developer',
+    period: 'January 2024 - Present',
+    description: 'Providing custom web development solutions for various clients, specializing in modern full-stack applications and automation tools.',
+    responsibilities: [
+      'Developed and deployed custom web applications for small to medium-sized businesses using modern tech stacks',
+      'Built responsive e-commerce platforms with integrated payment gateways and inventory management systems',
+      'Created RESTful APIs and microservices architecture for scalable client applications',
+      'Implemented automated testing and CI/CD pipelines to ensure code quality and deployment efficiency',
+      'Collaborated directly with clients to gather requirements, provide technical consultations, and deliver solutions on time',
+      'Optimized application performance and database queries, reducing load times by up to 60%',
+    ],
+    technologies: ['React', 'Next.js', 'Node.js', 'TypeScript', 'PostgreSQL', 'MongoDB', 'AWS', 'Docker', 'Git', 'Tailwind CSS', 'Express.js'],
+  },
+  {
+    id: '4',
     company: 'NGDumlao Inc',
     position: 'IT Assistant Staff',
     period: 'June 2023 - August 2023',
