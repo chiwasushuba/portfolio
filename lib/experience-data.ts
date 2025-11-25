@@ -20,7 +20,7 @@ export const experiences: Experience[] = [
       'Developed Features such as optimizing AI Image generations, automatic image upload/generation workflow for seamless user interactivity',
       'Debugged and built new features for a payment gateway application integrated with services like Dragonpay, ensuring smooth transaction and easy development structure for other developers',
     ],
-    technologies: ['Next.js', 'Nest.js', 'Nx', 'Google Cloud Storage', 'Dragonpay', 'AI/ML'],
+    technologies: ['Next.js', 'Nest.js', 'Nx', 'Google Cloud Storage', 'Payment Gateway', 'AI/ML', 'Redis'],
   },
   {
     id: '2',
@@ -33,7 +33,7 @@ export const experiences: Experience[] = [
       'Built an NBI clearance verification tool using AWS Textract to automatically extract and validate data from government-issued documents, reducing manual review time',
       'Implemented an automated letter-generation system based on pre-defined templates, improving administrative efficiency and reducing repetitive work',
     ],
-    technologies: ['AWS Textract', 'AWS', 'Document Processing', 'Automation', 'Web Development','ReactJs', 'Typescript'],
+    technologies: ['Next.js','AWS Textract', 'AWS', 'Document Processing', 'Automation', 'Web Development','ReactJs', 'Typescript'],
   },
     {
     id: '3',
