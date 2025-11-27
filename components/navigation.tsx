@@ -5,7 +5,6 @@ import { cn } from '@/lib/utils';
 
 const navItems = [
   { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
@@ -28,7 +27,10 @@ export default function Navigation() {
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
         if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
+          const newSection = navItems[i].id;
+          setActiveSection(newSection);
+          // Update URL hash without scrolling
+          window.history.replaceState({}, '', `#${newSection}`);
           break;
         }
       }
@@ -66,9 +68,13 @@ export default function Navigation() {
         <div className="flex items-center justify-end h-16">
           <div className="flex space-x-1 sm:space-x-2">
             {navItems.map((item) => (
-              <button
+              <a
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                href={`#${item.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.id);
+                }}
                 className={cn(
                   'px-3 sm:px-4 py-2 rounded-md text-sm font-medium transition-all duration-200',
                   'hover:bg-primary/10',
@@ -78,7 +84,7 @@ export default function Navigation() {
                 )}
               >
                 {item.label}
-              </button>
+              </a>
             ))}
           </div>
         </div>
