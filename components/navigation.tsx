@@ -29,8 +29,15 @@ export default function Navigation() {
         if (section && section.offsetTop <= scrollPosition) {
           const newSection = navItems[i].id;
           setActiveSection(newSection);
-          // Update URL hash without scrolling
-          window.history.replaceState({}, '', `#${newSection}`);
+          // Update URL hash without scrolling (use try-catch for security)
+          try {
+            if (window.location.hash !== `#${newSection}`) {
+              window.history.replaceState(null, '', `#${newSection}`);
+            }
+          } catch (e) {
+            // Silently fail if history API is not available or blocked
+            console.warn('Could not update URL hash:', e);
+          }
           break;
         }
       }
