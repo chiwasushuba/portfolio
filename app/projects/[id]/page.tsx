@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ProjectCarousel } from '@/components/ProjectCarousel';
 import Link from 'next/link';
-import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
+import { ArrowLeft, Code2, ExternalLink } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 
 interface ProjectPageProps {
@@ -66,7 +66,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {project.githubUrl && (
                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                   <Button variant="outline">
-                    <Github className="mr-2 h-4 w-4" />
+                    <Code2 className="mr-2 h-4 w-4" />
                     View Code
                   </Button>
                 </a>
