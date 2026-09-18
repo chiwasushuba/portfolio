@@ -1,6 +1,6 @@
 'use client'; // <--- Essential for Next.js App Router
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { ReactNode } from 'react';
 import { cn } from '@/lib/utils'; // Optional: see Step C below
 
